@@ -4,3 +4,9 @@
 *.jar
 *.war
 *.ear
+/Sample Smart Dashboard Part/nbproject/private/
+/Sample Smart Dashboard Part/build/
+/Sample Smart Dashboard Part/dist/
+/Vertical Bar/nbproject/private/
+/Vertical Bar/build/
+/Vertical Bar/dist/
