@@ -19,9 +19,10 @@ public class TutorialLabel extends StaticWidget
     @Override
     public void init()
     {
+
         // Initialize the Label
         label = new JLabel("Hello World!");
-        
+
         add(label);
     }
 
