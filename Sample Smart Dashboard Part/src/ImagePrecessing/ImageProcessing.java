@@ -5,6 +5,10 @@
 package ImagePrecessing;
 
 import edu.wpi.first.smartdashboard.camera.WPICameraExtension;
+import edu.wpi.first.smartdashboard.robot.Robot;
+import edu.wpi.first.wpilibj.networking.NetworkTable;
+import edu.wpi.first.wpilibj.tables.ITable;
+import edu.wpi.first.smartdashboard.xml.SmartDashboardXMLReader;
 import edu.wpi.first.wpijavacv.WPIColorImage;
 import edu.wpi.first.wpijavacv.WPIImage;
 
@@ -14,9 +18,16 @@ import edu.wpi.first.wpijavacv.WPIImage;
  */
 public class ImageProcessing extends WPICameraExtension
 {
+    static double x = 0;
+    static double y = 0;
     @Override
     public WPIImage processImage(WPIColorImage rawImage)
     {
-        return rawImage.getRedChannel();
+        x++;
+        y++;
+        ITable table = Robot.getTable();
+        table.putNumber("x", x);
+        table.putNumber("y", y);
+        return rawImage.getGreenChannel();
     }
 }
