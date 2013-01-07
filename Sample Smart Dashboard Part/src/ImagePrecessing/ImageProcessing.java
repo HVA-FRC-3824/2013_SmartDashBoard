@@ -26,8 +26,6 @@ public class ImageProcessing extends WPICameraExtension
         int h = 0;
         int w = 0;
         
-        
-        
         // Get IplImage from WPIColor image
         WPIImageWrapper image = new WPIImageWrapper(rawImage.getBufferedImage());
         IplImage iplImage = image.getIplImage();
@@ -50,11 +48,12 @@ public class ImageProcessing extends WPICameraExtension
                
         // Create Storage for the Contours
         opencv_core.CvMemStorage contours = opencv_core.CvMemStorage.create();
-        //List<opencv_core.CvMat> contours = new ArrayList<>(5);
         opencv_core.CvSeq hierarchy = new opencv_core.CvSeq();
         
+        // Find the Rectangles
         opencv_imgproc.cvFindContours(inRangeMat, contours, hierarchy, com.googlecode.javacpp.Loader.sizeof(opencv_core.CvContour.class), opencv_imgproc.CV_RETR_TREE, opencv_imgproc.CV_CHAIN_APPROX_SIMPLE, opencv_core.cvPoint(0, 0));
-                
+        
+        // Process the rectangles
         for(int idx = 0; idx < hierarchy.total(); idx++)
         {
             opencv_core.CvRect rect = opencv_imgproc.cvBoundingRect(hierarchy, idx);
@@ -67,6 +66,7 @@ public class ImageProcessing extends WPICameraExtension
         contours.deallocate();
         hierarchy.deallocate();
         
+        // Send the data to the robot
         ITable table = Robot.getTable();
         table.putNumber("X", x);
         table.putNumber("Y", y);
