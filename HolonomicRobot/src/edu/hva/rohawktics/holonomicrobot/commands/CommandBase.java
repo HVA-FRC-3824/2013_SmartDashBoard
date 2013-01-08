@@ -1,9 +1,10 @@
 package edu.hva.rohawktics.holonomicrobot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.hva.rohawktics.holonomicrobot.OI;
 import edu.hva.rohawktics.holonomicrobot.subsystems.DriveTrain;
+import edu.hva.rohawktics.holonomicrobot.subsystems.Orientation;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -16,6 +17,7 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     // Create a single static instance of all of your subsystems
     public static DriveTrain driveTrain = new DriveTrain();
+    public static Orientation orientation = new Orientation();
 
     public static void init() {
         oi = new OI();

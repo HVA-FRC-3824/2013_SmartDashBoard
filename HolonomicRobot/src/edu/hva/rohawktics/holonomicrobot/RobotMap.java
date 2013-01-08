@@ -12,6 +12,9 @@ public class RobotMap {
     public static final int REAR_LEFT_MOTOR = 2;
     public static final int FRONT_RIGHT_MOTOR = 3;
     public static final int REAR_RIGHT_MOTOR = 4;
+    
+    // Sensors
+    public static final int GYRO_PORT = 1;
 
     // Joysticks
     public static final int XBOX_CONROLLER = 1;

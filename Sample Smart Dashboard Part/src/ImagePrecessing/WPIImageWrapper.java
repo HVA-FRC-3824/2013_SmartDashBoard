@@ -18,16 +18,14 @@ public class WPIImageWrapper extends WPIImage
     {
         super(image);
     }
-    
+
     public WPIImageWrapper(IplImage image)
     {
         super(image);
     }
-    
+
     public IplImage getIplImage()
     {
         return image;
     }
-
 }
-

@@ -4,15 +4,18 @@
  */
 package edu.hva.rohawktics.holonomicrobot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
  *
- * @author YoungAsus
+ * @author Aaron
  */
-public class DriveWithXboxContoller extends CommandBase
+public class UpdateTurnRightPID extends CommandBase
 {
-    public DriveWithXboxContoller()
+    public UpdateTurnRightPID()
     {
-        requires(driveTrain);
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -23,14 +26,15 @@ public class DriveWithXboxContoller extends CommandBase
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
-        driveTrain.holonomicDrive(oi.xboxControler.getMagnitude(), 360.0 - oi.xboxControler.getDirectionDegrees(),
-                oi.xboxControler.getTwist());
+        TurnRight90.setPIDValue(SmartDashboard.getNumber("TurnRightP"), 
+                                SmartDashboard.getNumber("TurnRightI"), 
+                                SmartDashboard.getNumber("TurnRightD"));
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished()
     {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
